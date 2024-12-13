@@ -8,7 +8,7 @@ export default function Hero() {
           <h1 className='text-4xl font-bold leading-snug md:text-5xl md:leading-snug lg:text-6xl lg:leading-snug'>
             Code, Coffe and Creativity
           </h1>
-          <p className='text-dark-gray'>
+          <p className='text-dark-gray md:text-lg'>
             Your ultimate one-stop blog for all things coding—tips, tricks,
             tutorials, and a sprinkle of creativity to make your web development
             journey smarter, smoother, and way more fun!
