@@ -14,6 +14,9 @@ export default {
         gray: 'var(--gray)',
         'light-gray': 'var(--light-gray)',
         light: 'var(--light)'
+      },
+      screens: {
+        xl: '1200px'
       }
     }
   },

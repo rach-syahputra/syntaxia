@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans } from 'next/font/google'
-import { appName } from '@/lib/constants/constants'
+import { appName } from '@/lib/data/metadata'
 import './globals.css'
 
 const instrumentSans = Instrument_Sans({
