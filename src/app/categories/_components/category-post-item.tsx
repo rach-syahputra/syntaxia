@@ -24,7 +24,7 @@ export default function CategoryPostItem({
   return (
     <div
       onClick={() => router.push(`blogs/${slug}`)}
-      className='flex cursor-pointer gap-4 border-b border-light p-4 py-6 md:gap-8'
+      className='flex cursor-pointer border-b border-light py-6 md:gap-8 lg:p-4'
     >
       <div className='flex flex-col gap-2'>
         <Image

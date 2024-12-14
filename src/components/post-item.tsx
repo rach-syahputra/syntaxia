@@ -24,7 +24,7 @@ export default function PostItem({
   return (
     <div
       onClick={() => router.push(`blogs/${slug}`)}
-      className='flex cursor-pointer gap-4 border-b border-light py-6 md:gap-8'
+      className='flex cursor-pointer justify-between gap-4 border-b border-light py-6 md:gap-8'
     >
       <div className='flex flex-col gap-2'>
         <h3 className='text-xl font-bold leading-snug md:text-2xl'>{title}</h3>

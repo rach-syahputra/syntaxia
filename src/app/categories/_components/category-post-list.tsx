@@ -24,7 +24,7 @@ export default function CategoryPostList() {
 
   return (
     <div className='flex w-full flex-col gap-4'>
-      <div className='grid w-full grid-cols-2 gap-y-4 lg:grid-cols-3 lg:gap-8'>
+      <div className='grid w-full grid-cols-2 gap-4 lg:grid-cols-3'>
         {isLoading ? (
           <>
             <CategoryPostItemSkeleton />

@@ -19,3 +19,9 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer base {
+  p {
+    @apply py-2 text-base lg:text-lg;
+  }
+}
