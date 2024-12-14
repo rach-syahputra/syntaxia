@@ -3,9 +3,9 @@
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import PostItemSkeleton from './post-item-skeleton'
 import PostItem from '@/components/post-item'
 import { usePost } from '@/context/post-context'
-import PostItemSkeleton from './post-item-skeleton'
 
 interface PostListProps {
   itemsPerPage?: number

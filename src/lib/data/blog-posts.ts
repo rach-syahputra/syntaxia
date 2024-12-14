@@ -1,4 +1,5 @@
 export interface IPost {
+  id: number
   title: string
   description: string
   category: string
@@ -8,6 +9,7 @@ export interface IPost {
 
 export const posts: IPost[] = [
   {
+    id: 1,
     title: 'Oldest Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
@@ -16,6 +18,7 @@ export const posts: IPost[] = [
     createdAt: new Date('2024-01-15')
   },
   {
+    id: 2,
     title: 'Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
@@ -24,6 +27,7 @@ export const posts: IPost[] = [
     createdAt: new Date('2024-01-16')
   },
   {
+    id: 3,
     title: 'Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
@@ -32,6 +36,7 @@ export const posts: IPost[] = [
     createdAt: new Date('2024-01-18')
   },
   {
+    id: 4,
     title: 'Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
@@ -40,6 +45,7 @@ export const posts: IPost[] = [
     createdAt: new Date('2024-01-15')
   },
   {
+    id: 5,
     title: 'Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
@@ -48,6 +54,7 @@ export const posts: IPost[] = [
     createdAt: new Date('2024-01-15')
   },
   {
+    id: 6,
     title: 'Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
@@ -56,6 +63,7 @@ export const posts: IPost[] = [
     createdAt: new Date('2024-01-15')
   },
   {
+    id: 7,
     title: 'Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
@@ -64,6 +72,7 @@ export const posts: IPost[] = [
     createdAt: new Date('2024-01-15')
   },
   {
+    id: 8,
     title: 'Newest Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',

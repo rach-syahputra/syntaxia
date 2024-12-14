@@ -12,6 +12,7 @@ import {
 import { posts as blogPosts } from '@/lib/data/blog-posts'
 
 interface IPost {
+  id: number
   title: string
   description: string
   category: string
