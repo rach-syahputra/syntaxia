@@ -5,13 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import PostItem from '@/components/post-item'
 import { usePost } from '@/context/post-context'
+import PostItemSkeleton from './post-item-skeleton'
 
 interface PostListProps {
   itemsPerPage?: number
 }
 
 export default function PostList({ itemsPerPage = 4 }: PostListProps) {
-  const { posts, filter } = usePost()
+  const { isLoading, posts, filter } = usePost()
   const [visiblePostsCount, setVisiblePostsCount] =
     useState<number>(itemsPerPage)
 
@@ -28,11 +29,20 @@ export default function PostList({ itemsPerPage = 4 }: PostListProps) {
   return (
     <div className='flex flex-col gap-4'>
       <div className='flex flex-col'>
-        {sortedPosts &&
+        {isLoading ? (
+          <div className='flex flex-col'>
+            <PostItemSkeleton />
+            <PostItemSkeleton />
+            <PostItemSkeleton />
+            <PostItemSkeleton />
+          </div>
+        ) : (
+          sortedPosts &&
           sortedPosts.length > 0 &&
           sortedPosts
             .slice(0, visiblePostsCount)
-            .map((post, index) => <PostItem key={index} {...post} />)}
+            .map((post, index) => <PostItem key={index} {...post} />)
+        )}
       </div>
 
       {sortedPosts && visiblePostsCount < sortedPosts.length && (
