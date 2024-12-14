@@ -33,6 +33,7 @@ export default function CategoryPostItem({
           width={200}
           height={200}
           style={{ objectFit: 'cover' }}
+          loading='eager'
           className='h-auto w-full'
         />
         <h3 className='text-xl font-bold leading-snug md:text-2xl'>{title}</h3>

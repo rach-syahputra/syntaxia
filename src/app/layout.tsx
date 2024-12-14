@@ -9,7 +9,8 @@ import './globals.css'
 const instrumentSans = Instrument_Sans({
   variable: '--font-instrument-sans',
   subsets: ['latin'],
-  weight: ['400', '700']
+  weight: ['400', '700'],
+  display: 'swap'
 })
 
 export const metadata: Metadata = {
