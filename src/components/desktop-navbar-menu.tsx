@@ -11,7 +11,11 @@ export default function DesktopNavbarMenu() {
     <ul className='hidden gap-8 md:flex'>
       {navLinks.map((navLink, index) => (
         <li key={index}>
-          <NavLink href={navLink.href} isActive={navLink.href === pathname}>
+          <NavLink
+            href={navLink.href}
+            isActive={navLink.href === pathname}
+            label={navLink.label}
+          >
             {navLink.label}
           </NavLink>
         </li>

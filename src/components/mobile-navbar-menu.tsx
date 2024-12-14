@@ -43,7 +43,11 @@ export default function MobileNavbarMenu() {
         <ul className='flex flex-col gap-16 p-8'>
           {navLinks.map((navLink, index) => (
             <li key={index} onClick={() => setOpenMenu(false)}>
-              <NavLink href={navLink.href} isActive={navLink.href === pathname}>
+              <NavLink
+                href={navLink.href}
+                isActive={navLink.href === pathname}
+                label={navLink.label}
+              >
                 {navLink.label}
               </NavLink>
             </li>

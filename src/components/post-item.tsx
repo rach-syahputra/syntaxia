@@ -33,7 +33,7 @@ export default function PostItem({
             {description}
           </p>
         </div>
-        <span className='text-xs text-gray md:text-[13px]'>
+        <span className='text-xs text-dark-gray md:text-[13px]'>
           {formatDate(createdAt)}
         </span>
       </div>
