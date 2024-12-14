@@ -4,14 +4,14 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import PostItem from '@/components/post-item'
-import { IPost } from '@/lib/data/blog-posts'
+import { usePost } from '@/context/post-context'
 
 interface PostListProps {
-  posts: IPost[]
   itemsPerPage?: number
 }
 
-export default function PostList({ posts, itemsPerPage = 4 }: PostListProps) {
+export default function PostList({ itemsPerPage = 4 }: PostListProps) {
+  const { posts } = usePost()
   const [visiblePostsCount, setVisiblePostsCount] =
     useState<number>(itemsPerPage)
 
@@ -29,12 +29,12 @@ export default function PostList({ posts, itemsPerPage = 4 }: PostListProps) {
             .map((post, index) => <PostItem key={index} {...post} />)}
       </div>
 
-      {visiblePostsCount < posts.length && (
+      {posts && visiblePostsCount < posts.length && (
         <button
           onClick={showMorePosts}
           className='mx-auto flex items-center gap-2 text-sm'
         >
-          Show more <FontAwesomeIcon icon={faChevronDown} className='text-xs' />
+          Show more <FontAwesomeIcon icon={faChevronDown} className='h-3 w-3' />
         </button>
       )}
     </div>

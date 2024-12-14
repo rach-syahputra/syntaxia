@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans } from 'next/font/google'
+import { PostProvider } from '@/context/post-context'
 import { appName } from '@/lib/data/metadata'
 import './globals.css'
 
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${instrumentSans.variable}`}>
       <body className='font-[family-name:var(--font-instrument-sans)] antialiased'>
-        {children}
+        <PostProvider>{children}</PostProvider>
       </body>
     </html>
   )
