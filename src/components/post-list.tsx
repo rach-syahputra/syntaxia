@@ -7,19 +7,11 @@ import PostItem from '@/components/post-item'
 import { IPost } from '@/lib/data/blog-posts'
 
 interface PostListProps {
-  title: string
   posts: IPost[]
   itemsPerPage?: number
 }
 
-export default function PostList({
-  title,
-  posts,
-  itemsPerPage = 4
-}: PostListProps) {
-  // split the title for styling purpose
-  const [titleFirstWord, ...remainingTitleWords] = title.split(' ')
-
+export default function PostList({ posts, itemsPerPage = 4 }: PostListProps) {
   const [visiblePostsCount, setVisiblePostsCount] =
     useState<number>(itemsPerPage)
 
@@ -28,12 +20,7 @@ export default function PostList({
   }
 
   return (
-    <section className='flex w-full flex-col gap-4'>
-      <h2 className='text-3xl font-bold md:text-4xl'>
-        <span className='text-gray'>{titleFirstWord}</span>{' '}
-        {remainingTitleWords.join(' ')}
-      </h2>
-
+    <div className='flex flex-col gap-4'>
       <div className='flex flex-col'>
         {posts &&
           posts.length > 0 &&
@@ -50,6 +37,6 @@ export default function PostList({
           Show more <FontAwesomeIcon icon={faChevronDown} className='text-xs' />
         </button>
       )}
-    </section>
+    </div>
   )
 }
