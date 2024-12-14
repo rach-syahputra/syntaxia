@@ -6,6 +6,7 @@ import CategoryList, {
   CategoryBody,
   CategoryTitle
 } from '@/components/category-list'
+import { popularCategories } from '@/lib/data/categories'
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
           <Sidebar>
             <CategoryList>
               <CategoryTitle>Popular categories</CategoryTitle>
-              <CategoryBody />
+              <CategoryBody categories={popularCategories} />
             </CategoryList>
           </Sidebar>
         </div>

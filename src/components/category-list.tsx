@@ -14,6 +14,10 @@ interface CategoryListTitleProps {
   children: React.ReactNode
 }
 
+interface CategoryListBodyProps {
+  categories: string[]
+}
+
 export default function CategoryList({
   children,
   className
@@ -25,9 +29,8 @@ export function CategoryTitle({ children }: CategoryListTitleProps) {
   return <h4 className='text-lg font-bold'>{children}</h4>
 }
 
-export function CategoryBody() {
+export function CategoryBody({ categories }: CategoryListBodyProps) {
   const { isLoading, category: activeCategory, setCategory } = usePost()
-  const categories: string[] = ['react', 'typescript', 'javascript']
 
   useEffect(() => {
     setCategory('')
