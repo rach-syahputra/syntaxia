@@ -3,7 +3,10 @@ import Hero from './_components/hero'
 import FeaturedPosts from './_components/featured-posts'
 import Subscribe from './_components/subscribe'
 import Sidebar from '@/components/sidebar'
-import CategoryList from '@/components/category-list'
+import CategoryList, {
+  CategoryBody,
+  CategoryTitle
+} from '@/components/category-list'
 import PostItemSkeleton from '@/components/post-item-skeleton'
 import { popularCategories } from '@/lib/data/categories'
 
@@ -29,10 +32,10 @@ export default function Home() {
             <Subscribe />
           </div>
           <Sidebar>
-            <CategoryList
-              title='Popular Categories'
-              categories={popularCategories}
-            />
+            <CategoryList>
+              <CategoryTitle>Popular categories</CategoryTitle>
+              <CategoryBody categories={popularCategories} />
+            </CategoryList>
           </Sidebar>
         </div>
       </main>
