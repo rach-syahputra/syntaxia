@@ -27,7 +27,7 @@ export function SectionTitle({ title }: SectionTitleProps) {
   const [titleFirstWord, ...remainingTitleWords] = title.split(' ')
 
   return (
-    <h2 className='text-3xl font-bold md:text-4xl'>
+    <h2 className='text-[28px] font-bold md:text-3xl lg:text-4xl'>
       <span className='text-gray'>{titleFirstWord}</span>{' '}
       {remainingTitleWords.join(' ')}
     </h2>
