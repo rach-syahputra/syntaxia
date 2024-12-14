@@ -28,7 +28,11 @@ export default function PostItem({
     >
       <div className='flex flex-col gap-2'>
         <h3 className='text-xl font-bold leading-snug md:text-2xl'>{title}</h3>
-        <p className='line-clamp-2 text-dark-gray md:text-lg'>{description}</p>
+        <div className='h-full'>
+          <p className='line-clamp-2 text-dark-gray md:text-lg'>
+            {description}
+          </p>
+        </div>
         <span className='text-xs text-gray md:text-[13px]'>
           {formatDate(createdAt)}
         </span>

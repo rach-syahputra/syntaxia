@@ -22,6 +22,6 @@ body {
 
 @layer base {
   p {
-    @apply py-2 text-base lg:text-lg;
+    @apply py-1.5 text-base lg:text-lg;
   }
 }
