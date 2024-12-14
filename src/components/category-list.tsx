@@ -14,10 +14,6 @@ interface CategoryListTitleProps {
   children: React.ReactNode
 }
 
-interface CategoryListBodyProps {
-  categories: string[]
-}
-
 export default function CategoryList({
   children,
   className
@@ -29,8 +25,9 @@ export function CategoryTitle({ children }: CategoryListTitleProps) {
   return <h4 className='text-lg font-bold'>{children}</h4>
 }
 
-export function CategoryBody({ categories }: CategoryListBodyProps) {
-  const { category: activeCategory, setCategory } = usePost()
+export function CategoryBody() {
+  const { isLoading, category: activeCategory, setCategory } = usePost()
+  const categories: string[] = ['react', 'typescript', 'javascript']
 
   useEffect(() => {
     setCategory('')
@@ -46,7 +43,13 @@ export function CategoryBody({ categories }: CategoryListBodyProps) {
 
   return (
     <ul className='flex flex-wrap gap-2'>
-      {categories.length > 0 ? (
+      {isLoading ? (
+        <div className='flex gap-2'>
+          <div className='h-8 w-20 animate-pulse rounded-full bg-light'></div>
+          <div className='h-8 w-20 animate-pulse rounded-full bg-light'></div>
+          <div className='h-8 w-20 animate-pulse rounded-full bg-light'></div>
+        </div>
+      ) : categories.length > 0 ? (
         categories.map((category, index) => (
           <li
             key={index}

@@ -26,7 +26,7 @@ export default function MobileNavbarMenu() {
       <div
         className={`${openMenu ? 'translate-x-0' : '-translate-x-full'} fixed left-0 top-0 h-screen w-screen bg-white transition-all duration-300 ease-in-out md:hidden`}
       >
-        <div className='border-light flex h-[80px] items-center justify-between border-b px-8'>
+        <div className='flex h-[80px] items-center justify-between border-b border-light px-8'>
           <Image
             src='/syntaxia.svg'
             alt='Syntaxia logo'
@@ -42,7 +42,7 @@ export default function MobileNavbarMenu() {
         </div>
         <ul className='flex flex-col gap-16 p-8'>
           {navLinks.map((navLink, index) => (
-            <li key={index}>
+            <li key={index} onClick={() => setOpenMenu(false)}>
               <NavLink href={navLink.href} isActive={navLink.href === pathname}>
                 {navLink.label}
               </NavLink>

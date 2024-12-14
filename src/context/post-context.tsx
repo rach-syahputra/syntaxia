@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
@@ -9,21 +10,27 @@ import {
   useEffect,
   useState
 } from 'react'
-import { posts as blogPosts } from '@/lib/data/blog-posts'
+import contentfulClient from '@/contentful/contentful-client'
+import { Document as RichTextDocument } from '@contentful/rich-text-types'
+import {
+  IContentfulAsset,
+  TypeBlogPostSkeleton
+} from '@/contentful/types/blog-post-types'
 
 interface IPost {
-  id: number
   title: string
+  slug: string
   description: string
-  category: string
-  imageUrl: string
+  image: string
   createdAt: Date
+  category: string
+  body: RichTextDocument
 }
 
 type filterType = 'Newest' | 'Oldest'
 
 interface IPostContext {
-  posts: IPost[] | null
+  posts: any[] | undefined
   filter: filterType
   setFilter: Dispatch<SetStateAction<filterType>>
   category: string
@@ -34,26 +41,49 @@ interface IPostContext {
 const PostContext = createContext<IPostContext | undefined>(undefined)
 
 const PostProvider = ({ children }: { children: React.ReactNode }) => {
-  const [posts, setPosts] = useState<IPost[] | null>(null)
+  const [posts, setPosts] = useState<any[] | undefined>()
   const [filter, setFilter] = useState<filterType>('Newest')
   const [category, setCategory] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    updatePosts()
-  }, [filter, category])
+    fetchPosts()
+  }, [])
 
   useEffect(() => {
-    console.log('posts updated')
-  }, [posts])
+    fetchPosts()
+  }, [filter, category])
 
-  const updatePosts = () => {
+  const fetchPosts = async () => {
     setIsLoading(true)
 
-    if (category) {
-      setPosts(blogPosts.filter((post) => post.category === category))
-    } else {
-      setPosts(blogPosts)
+    try {
+      const data = await contentfulClient.getEntries<TypeBlogPostSkeleton>({
+        content_type: 'blogPost',
+        order: [`${filter === 'Newest' ? '-sys.createdAt' : 'sys.createdAt'}`]
+      })
+
+      if (category) {
+        setPosts(
+          data.items
+            .map((item) => ({
+              ...item.fields,
+              image: `https:${(item.fields.image as IContentfulAsset)?.fields.file.url}`,
+              createdAt: item.sys.createdAt
+            }))
+            .filter((item) => item.category === category)
+        )
+      } else {
+        setPosts(
+          data.items.map((item) => ({
+            ...item.fields,
+            image: `https:${(item.fields.image as IContentfulAsset)?.fields.file.url}`,
+            createdAt: item.sys.createdAt
+          }))
+        )
+      }
+    } catch (error) {
+      console.log(error)
     }
 
     setIsLoading(false)

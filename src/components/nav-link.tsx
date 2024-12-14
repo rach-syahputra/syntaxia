@@ -15,7 +15,7 @@ export default function NavLink({
   return (
     <Link
       href={href}
-      className={cn('text-2xl lg:text-lg', {
+      className={cn('lg:text-lg', {
         'font-bold': isActive
       })}
     >

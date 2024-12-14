@@ -1,22 +1,29 @@
 'use client'
 
 import Image from 'next/image'
-import { IPost as PostItemProps } from '@/lib/data/blog-posts'
 import { formatDate } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 
+interface PostItemProps {
+  slug: string
+  title: string
+  description: string
+  image: string
+  createdAt: Date
+}
+
 export default function PostItem({
-  id,
+  slug,
   title,
   description,
-  imageUrl,
+  image,
   createdAt
 }: PostItemProps) {
   const router = useRouter()
 
   return (
     <div
-      onClick={() => router.push(`blogs/${id}`)}
+      onClick={() => router.push(`blogs/${slug}`)}
       className='flex cursor-pointer gap-4 border-b border-light py-6 md:gap-8'
     >
       <div className='flex flex-col gap-2'>
@@ -27,7 +34,7 @@ export default function PostItem({
         </span>
       </div>
       <Image
-        src={imageUrl}
+        src={image}
         alt='Post image'
         width={144}
         height={144}

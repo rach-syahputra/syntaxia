@@ -1,5 +1,4 @@
 import CategoryList, { CategoryBody } from '@/components/category-list'
-import { allCategories } from '@/lib/data/categories'
 import CategoryDetail from './_components/category-detail'
 import CategoryPostList from './_components/category-post-list'
 
@@ -8,7 +7,7 @@ export default function Page() {
     <main className='p mx-auto w-full max-w-screen-xl p-4 md:p-8'>
       <div className='flex flex-col items-center justify-center gap-8'>
         <CategoryList className='flex items-center justify-center'>
-          <CategoryBody categories={allCategories} />
+          <CategoryBody />
         </CategoryList>
         <CategoryDetail />
         <CategoryPostList />
