@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans } from 'next/font/google'
 import { PostProvider } from '@/context/post-context'
+import Navbar from '@/components/navbar'
+import Footer from '@/components/footer'
 import { appName } from '@/lib/data/metadata'
 import './globals.css'
 
@@ -24,7 +26,11 @@ export default function RootLayout({
   return (
     <html lang='en' className={`${instrumentSans.variable}`}>
       <body className='font-[family-name:var(--font-instrument-sans)] antialiased'>
-        <PostProvider>{children}</PostProvider>
+        <PostProvider>
+          <Navbar />
+          <div className='min-h-screen w-screen'>{children}</div>
+          <Footer />
+        </PostProvider>
       </body>
     </html>
   )
