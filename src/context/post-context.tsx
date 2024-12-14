@@ -35,6 +35,7 @@ interface IPostContext {
   setFilter: Dispatch<SetStateAction<filterType>>
   category: string
   setCategory: Dispatch<SetStateAction<string>>
+  setSearchQuery: Dispatch<SetStateAction<string>>
   isLoading: boolean
 }
 
@@ -44,6 +45,7 @@ const PostProvider = ({ children }: { children: React.ReactNode }) => {
   const [posts, setPosts] = useState<any[] | undefined>()
   const [filter, setFilter] = useState<filterType>('Newest')
   const [category, setCategory] = useState<string>('')
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -52,7 +54,7 @@ const PostProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     fetchPosts()
-  }, [filter, category])
+  }, [filter, category, searchQuery])
 
   const fetchPosts = async () => {
     setIsLoading(true)
@@ -60,28 +62,18 @@ const PostProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const data = await contentfulClient.getEntries<TypeBlogPostSkeleton>({
         content_type: 'blogPost',
-        order: [`${filter === 'Newest' ? '-sys.createdAt' : 'sys.createdAt'}`]
+        order: [`${filter === 'Newest' ? '-sys.createdAt' : 'sys.createdAt'}`],
+        'fields.title[match]': searchQuery,
+        'fields.category': category
       })
 
-      if (category) {
-        setPosts(
-          data.items
-            .map((item) => ({
-              ...item.fields,
-              image: `https:${(item.fields.image as IContentfulAsset)?.fields.file.url}`,
-              createdAt: item.sys.createdAt
-            }))
-            .filter((item) => item.category === category)
-        )
-      } else {
-        setPosts(
-          data.items.map((item) => ({
-            ...item.fields,
-            image: `https:${(item.fields.image as IContentfulAsset)?.fields.file.url}`,
-            createdAt: item.sys.createdAt
-          }))
-        )
-      }
+      setPosts(
+        data.items.map((item) => ({
+          ...item.fields,
+          image: `https:${(item.fields.image as IContentfulAsset)?.fields.file.url}`,
+          createdAt: item.sys.createdAt
+        }))
+      )
     } catch (error) {
       console.log(error)
     }
@@ -91,7 +83,15 @@ const PostProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <PostContext.Provider
-      value={{ posts, filter, setFilter, category, setCategory, isLoading }}
+      value={{
+        posts,
+        filter,
+        setFilter,
+        category,
+        setCategory,
+        setSearchQuery,
+        isLoading
+      }}
     >
       {children}
     </PostContext.Provider>
