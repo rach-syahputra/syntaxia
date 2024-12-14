@@ -8,11 +8,11 @@ export default function PostItem({
   createdAt
 }: PostItemProps) {
   return (
-    <div className='border-light flex gap-4 border-b py-6 md:gap-8'>
+    <div className='flex gap-4 border-b border-light py-6 md:gap-8'>
       <div className='flex flex-col gap-2'>
         <h3 className='text-xl font-bold leading-snug md:text-2xl'>{title}</h3>
-        <p className='text-dark-gray line-clamp-2 md:text-lg'>{description}</p>
-        <span className='text-gray text-xs md:text-sm'>{createdAt}</span>
+        <p className='line-clamp-2 text-dark-gray md:text-lg'>{description}</p>
+        <span className='text-xs text-gray md:text-[13px]'>{createdAt}</span>
       </div>
       <Image
         src={imageUrl}
