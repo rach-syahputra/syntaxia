@@ -1,33 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
+import { useEffect } from 'react'
 import { usePost } from '@/context/post-context'
 import { cn } from '@/lib/utils'
-import { useEffect, useState } from 'react'
 
 interface CategoryListProps {
   title: string
   categories: string[]
-  active?: string
 }
 
-export default function CategoryList({
-  title,
-  categories,
-  active = ''
-}: CategoryListProps) {
-  const { updatePosts } = usePost()
-  const [activeCategory, setActiveCategory] = useState<string>(active)
+export default function CategoryList({ title, categories }: CategoryListProps) {
+  const { category: activeCategory, setCategory } = usePost()
 
   useEffect(() => {
-    updatePosts(activeCategory)
-  }, [activeCategory])
+    setCategory('')
+  }, [])
 
-  const handleCategory = (category?: string) => {
+  const handleCategory = (category: string) => {
     if (activeCategory === category) {
-      setActiveCategory('')
+      setCategory('')
     } else {
-      setActiveCategory(category || '')
+      setCategory(category)
     }
   }
 

@@ -3,8 +3,9 @@ import BlogPosts from './_components/blog-posts'
 import SearchBar from './_components/search-bar'
 import PostItemSkeleton from '@/components/post-item-skeleton'
 import Sidebar from '@/components/sidebar'
+import FilterList from '@/components/filter-list'
 import CategoryList from '@/components/category-list'
-import { allCategories, filter, popularCategories } from '@/lib/data/categories'
+import { allCategories, popularCategories } from '@/lib/data/categories'
 
 export default function Page() {
   return (
@@ -27,7 +28,7 @@ export default function Page() {
           </div>
           <Sidebar>
             <SearchBar />
-            <CategoryList title='Filter' categories={filter} />
+            <FilterList />
             <CategoryList
               title='Popular Categories'
               categories={popularCategories}

@@ -3,17 +3,17 @@ export interface IPost {
   description: string
   category: string
   imageUrl: string
-  createdAt: string
+  createdAt: Date
 }
 
 export const posts: IPost[] = [
   {
-    title: 'Explore React Compiler: Architecture and Optimization',
+    title: 'Oldest Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
     category: 'react',
     imageUrl: '/post-image.svg',
-    createdAt: 'Nov 20, 2024'
+    createdAt: new Date('2024-01-15')
   },
   {
     title: 'Explore React Compiler: Architecture and Optimization',
@@ -21,7 +21,7 @@ export const posts: IPost[] = [
       'An in-depth look at React’s compilation mechanics and performance strategies',
     category: 'react',
     imageUrl: '/post-image.svg',
-    createdAt: 'Nov 20, 2024'
+    createdAt: new Date('2024-01-16')
   },
   {
     title: 'Explore React Compiler: Architecture and Optimization',
@@ -29,7 +29,7 @@ export const posts: IPost[] = [
       'An in-depth look at React’s compilation mechanics and performance strategies',
     category: 'react',
     imageUrl: '/post-image.svg',
-    createdAt: 'Nov 20, 2024'
+    createdAt: new Date('2024-01-18')
   },
   {
     title: 'Explore React Compiler: Architecture and Optimization',
@@ -37,7 +37,7 @@ export const posts: IPost[] = [
       'An in-depth look at React’s compilation mechanics and performance strategies',
     category: 'react',
     imageUrl: '/post-image.svg',
-    createdAt: 'Nov 20, 2024'
+    createdAt: new Date('2024-01-15')
   },
   {
     title: 'Explore React Compiler: Architecture and Optimization',
@@ -45,7 +45,7 @@ export const posts: IPost[] = [
       'An in-depth look at React’s compilation mechanics and performance strategies',
     category: 'react',
     imageUrl: '/post-image.svg',
-    createdAt: 'Nov 20, 2024'
+    createdAt: new Date('2024-01-15')
   },
   {
     title: 'Explore React Compiler: Architecture and Optimization',
@@ -53,7 +53,7 @@ export const posts: IPost[] = [
       'An in-depth look at React’s compilation mechanics and performance strategies',
     category: 'javascript',
     imageUrl: '/post-image.svg',
-    createdAt: 'Nov 20, 2024'
+    createdAt: new Date('2024-01-15')
   },
   {
     title: 'Explore React Compiler: Architecture and Optimization',
@@ -61,14 +61,14 @@ export const posts: IPost[] = [
       'An in-depth look at React’s compilation mechanics and performance strategies',
     category: 'javascript',
     imageUrl: '/post-image.svg',
-    createdAt: 'Nov 20, 2024'
+    createdAt: new Date('2024-01-15')
   },
   {
-    title: 'Explore React Compiler: Architecture and Optimization',
+    title: 'Newest Explore React Compiler: Architecture and Optimization',
     description:
       'An in-depth look at React’s compilation mechanics and performance strategies',
     category: 'typescript',
     imageUrl: '/post-image.svg',
-    createdAt: 'Nov 20, 2024'
+    createdAt: new Date('2024-01-20')
   }
 ]

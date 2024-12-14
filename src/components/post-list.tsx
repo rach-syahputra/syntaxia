@@ -11,7 +11,7 @@ interface PostListProps {
 }
 
 export default function PostList({ itemsPerPage = 4 }: PostListProps) {
-  const { posts } = usePost()
+  const { posts, filter } = usePost()
   const [visiblePostsCount, setVisiblePostsCount] =
     useState<number>(itemsPerPage)
 
@@ -19,17 +19,23 @@ export default function PostList({ itemsPerPage = 4 }: PostListProps) {
     setVisiblePostsCount((prevCount) => prevCount + itemsPerPage)
   }
 
+  const sortedPosts = posts?.sort((a, b) => {
+    const dateA = new Date(a.createdAt).getTime()
+    const dateB = new Date(b.createdAt).getTime()
+    return filter === 'Newest' ? dateB - dateA : dateA - dateB
+  })
+
   return (
     <div className='flex flex-col gap-4'>
       <div className='flex flex-col'>
-        {posts &&
-          posts.length > 0 &&
-          posts
+        {sortedPosts &&
+          sortedPosts.length > 0 &&
+          sortedPosts
             .slice(0, visiblePostsCount)
             .map((post, index) => <PostItem key={index} {...post} />)}
       </div>
 
-      {posts && visiblePostsCount < posts.length && (
+      {sortedPosts && visiblePostsCount < sortedPosts.length && (
         <button
           onClick={showMorePosts}
           className='mx-auto flex items-center gap-2 text-sm'

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { IPost as PostItemProps } from '@/lib/data/blog-posts'
+import { formatDate } from '@/lib/utils'
 
 export default function PostItem({
   title,
@@ -12,7 +13,9 @@ export default function PostItem({
       <div className='flex flex-col gap-2'>
         <h3 className='text-xl font-bold leading-snug md:text-2xl'>{title}</h3>
         <p className='line-clamp-2 text-dark-gray md:text-lg'>{description}</p>
-        <span className='text-xs text-gray md:text-[13px]'>{createdAt}</span>
+        <span className='text-xs text-gray md:text-[13px]'>
+          {formatDate(createdAt)}
+        </span>
       </div>
       <Image
         src={imageUrl}
