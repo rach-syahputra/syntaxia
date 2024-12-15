@@ -29,6 +29,7 @@ export default function PostDetail({ slug }: { slug: string }) {
             width={600}
             height={600}
             loading='eager'
+            priority={true}
             style={{ objectFit: 'cover' }}
             className='h-auto w-full'
           />
