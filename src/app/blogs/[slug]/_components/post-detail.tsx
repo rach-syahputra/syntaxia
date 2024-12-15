@@ -17,7 +17,7 @@ export default function PostDetail({ slug }: { slug: string }) {
           <h1 className='text-2xl font-bold md:text-3xl lg:text-4xl'>
             {post.title}
           </h1>
-          <span className='text-xs text-gray md:text-sm'>
+          <span className='text-xs text-dark-gray md:text-sm'>
             {formatDate(post.createdAt)}
           </span>
           <div className='w-fit rounded-full bg-light px-4 py-2 text-sm'>
@@ -28,6 +28,7 @@ export default function PostDetail({ slug }: { slug: string }) {
             alt='Post image'
             width={600}
             height={600}
+            loading='eager'
             style={{ objectFit: 'cover' }}
             className='h-auto w-full'
           />

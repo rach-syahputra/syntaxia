@@ -11,7 +11,7 @@ export default function CategoryDetail() {
           <h2 className='text-2xl font-bold md:text-3xl lg:text-4xl'>
             {category}
           </h2>
-          <p className='text-base text-gray lg:text-lg'>
+          <p className='text-base text-dark-gray lg:text-lg'>
             Dive into the world of React, a powerful JavaScript library for
             creating user-friendly interfaces.
           </p>
@@ -21,7 +21,7 @@ export default function CategoryDetail() {
           <h2 className='text-2xl font-bold md:text-3xl lg:text-4xl'>
             explore category
           </h2>
-          <p className='text-base text-gray lg:text-lg'>
+          <p className='text-base text-dark-gray lg:text-lg'>
             Select one of the categories above.
           </p>
         </>

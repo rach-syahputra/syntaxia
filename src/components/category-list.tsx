@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
 import { useEffect } from 'react'
@@ -26,7 +25,7 @@ export default function CategoryList({
 }
 
 export function CategoryTitle({ children }: CategoryListTitleProps) {
-  return <h4 className='text-lg font-bold'>{children}</h4>
+  return <h3 className='text-lg font-bold'>{children}</h3>
 }
 
 export function CategoryBody({ categories }: CategoryListBodyProps) {
@@ -48,9 +47,9 @@ export function CategoryBody({ categories }: CategoryListBodyProps) {
     <ul className='flex flex-wrap gap-2'>
       {isLoading ? (
         <div className='flex gap-2'>
-          <div className='h-8 w-20 animate-pulse rounded-full bg-light'></div>
-          <div className='h-8 w-20 animate-pulse rounded-full bg-light'></div>
-          <div className='h-8 w-20 animate-pulse rounded-full bg-light'></div>
+          <div className='h-9 w-20 animate-pulse rounded-full bg-light'></div>
+          <div className='h-9 w-20 animate-pulse rounded-full bg-light'></div>
+          <div className='h-9 w-20 animate-pulse rounded-full bg-light'></div>
         </div>
       ) : categories.length > 0 ? (
         categories.map((category, index) => (
@@ -58,7 +57,7 @@ export function CategoryBody({ categories }: CategoryListBodyProps) {
             key={index}
             onClick={() => handleCategory(category.toLocaleLowerCase())}
             className={cn(
-              'cursor-pointer select-none rounded-full bg-light px-4 py-2 text-sm transition-all duration-300 ease-in-out hover:bg-light-gray',
+              'flex h-9 cursor-pointer select-none items-center justify-center rounded-full bg-light px-4 text-sm transition-all duration-300 ease-in-out hover:bg-light-gray',
               {
                 'bg-dark text-white hover:bg-dark':
                   activeCategory === category.toLowerCase()
