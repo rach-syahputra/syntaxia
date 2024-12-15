@@ -7,12 +7,14 @@ import CategoryList, {
   CategoryTitle
 } from '@/components/category-list'
 import { allCategories, popularCategories } from '@/lib/data/categories'
+import TopBar from './_components/top-bar'
 
 export default function Page() {
   return (
     <main className='mx-auto w-full max-w-screen-xl'>
+      <TopBar />
       <div className='relative grid lg:grid-cols-8'>
-        <div className='mb-16 flex flex-col gap-10 border-r border-light px-4 py-8 md:gap-12 md:px-8 lg:col-span-5 lg:gap-16'>
+        <div className='mb-8 flex flex-col gap-10 border-r border-light px-4 py-4 md:gap-12 md:px-8 lg:col-span-5 lg:mb-16 lg:gap-16 lg:py-8'>
           <BlogPosts />
         </div>
         <Sidebar>

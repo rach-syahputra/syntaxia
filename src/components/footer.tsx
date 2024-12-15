@@ -16,7 +16,7 @@ export default function Footer() {
           </p>
         </div>
         <div className='flex flex-col items-center justify-center gap-2'>
-          <h4 className='font-bold text-white md:text-lg'>Contacts</h4>
+          <span className='font-bold text-white md:text-lg'>Contacts</span>
           <div className='flex items-center justify-center gap-4'>
             <Link
               href='https://api.whatsapp.com/send?phone=6281347580400&text=Hello%2C%20I%27d%20like%20to%20work%20with%20you!wa.link/o1758o'

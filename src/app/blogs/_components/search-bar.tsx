@@ -16,7 +16,7 @@ export default function SearchBar() {
   }
 
   return (
-    <div className='flex items-center gap-2 rounded-md border px-3 py-1'>
+    <div className='flex max-w-[425px] items-center gap-2 rounded-md border px-3 py-2'>
       <FontAwesomeIcon icon={faMagnifyingGlass} className='h-4 w-4 text-gray' />
 
       <div className='flex flex-col gap-2'>

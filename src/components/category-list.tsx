@@ -25,7 +25,7 @@ export default function CategoryList({
 }
 
 export function CategoryTitle({ children }: CategoryListTitleProps) {
-  return <h3 className='text-lg font-bold'>{children}</h3>
+  return <h3 className='text-base font-bold lg:text-lg'>{children}</h3>
 }
 
 export function CategoryBody({ categories }: CategoryListBodyProps) {
