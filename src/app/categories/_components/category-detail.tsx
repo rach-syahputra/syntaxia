@@ -1,19 +1,22 @@
 'use client'
 
 import { usePost } from '@/context/post-context'
+import { categories } from '@/lib/data/categories'
 
 export default function CategoryDetail() {
-  const { category } = usePost()
+  const { category: selectedCategory } = usePost()
+
+  const category = categories.find((c) => c.label === selectedCategory)
+
   return (
     <div className='flex flex-col items-center justify-center gap-4'>
       {category ? (
         <>
           <h2 className='text-2xl font-bold md:text-3xl lg:text-4xl'>
-            {category}
+            {category.label}
           </h2>
           <p className='text-base text-dark-gray lg:text-lg'>
-            Dive into the world of React, a powerful JavaScript library for
-            creating user-friendly interfaces.
+            {category.description}
           </p>
         </>
       ) : (
